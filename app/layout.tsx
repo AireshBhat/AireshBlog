@@ -60,7 +60,6 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   const basePath = process.env.BASE_PATH || ''
-
   return (
     <html
       lang={siteMetadata.language}

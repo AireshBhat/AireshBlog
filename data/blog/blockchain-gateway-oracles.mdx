@@ -1,0 +1,71 @@
+---
+title: 'Blockchain Gateway - Oracles'
+summary: 'Let’s talk about how crucial data and everyday facts enter the blockchain state!'
+date: 'Nov 08 2021'
+images: ['../../assets/images/Blockchain-Gateway.png']
+category: 'Web3'
+tags: ['Blockchain', 'Oracles', 'Trust']
+---
+
+We’ve come a long way in this decentralized world. But let’s spend a couple of minutes talking about why we even have Blockchains in our current time.
+
+## Trust
+
+For quite some time now, we have trusted many third parties with our information without realizing it. We’ve been trusting Facebook to hold our information personal and not sell it to make profits. We’ve been trusting banks with our money, hoping they give us a decent interest rate of return, hoping that our money will stay safe with them. The list goes on. In various aspects of life, we have lent our personal information to third parties only to trust that they will not misuse it. The [great recession](https://www.investopedia.com/terms/g/great-recession.asp) around 2007–2009 left a group of anonymous coders/developers giving the world a solution to the various issues that centralized institutions have. Bitcoin became the very first working model of a decentralized financial system. Anyone could join this network, and the rules of this institution remained hardcoded. No one could tamper with them. Trust no longer had to be placed on a person or group of people running a company. Instead, people could now put their trust in software that runs on a set of rules regardless of external circumstances. This software is now called Blockchain!
+
+## What do we still trust now?
+
+In the current day and age, we have countless Blockchains. In our previous articles, we introduced Ethereum and, mainly, Ethereum smart contracts. Ethereum smart contracts allowed us to program rules that run when certain conditions are met, regardless of what happens(You can read more about smart contracts [here](https://blockchainiseasy.github.io/smart-contracts/)). Let’s say we have a smart contract that runs a betting game. Let the game be on the outcome of a particular sporting event, let’s say football. Participants A and B bet on the result of a football game played between Manchester United and Chelsea. A bets on Manchester whereas B bets on Chelsea. Both A and B deposit one Ether into a smart contract that automatically transfers the total amount to the winner based on the result of the match. This agreement seems pretty straightforward!
+
+![Betting Agreement](/AireshBlog/static/images/Betting-Agreement.jpg)
+
+However, let’s say participant A here is a hacker ☠️. Regardless of the event’s outcome, participant A here manages to send the wrong information to the smart contract. This smart contract, which has only one source of information, now uses the false result to trigger a transaction that the Blockchain cannot revert. You might think it’s pretty simple to undo this issue. Just ask hacker A here to give back the amount to B. But what happens when millions of participants are betting? What happens if we do not know who participant A(the hacker) is?
+
+This issue is a pretty big concern in Blockchain.
+
+> How do we provide the correct data to a smart contract which is about to trigger a transaction?
+
+## Another view to the off-chain data problem
+
+In a previous article, we discussed how all the nodes agree on the state after mining each node in the Ethereum Blockchain. Wait, what? The smart contracts work like this; you enter some data -> some computations ⚙️. -> result of the computations 📝 -> store this result as a transaction 📦 . Like this, each block contains, on average, 70 transactions. So let’s say I call the “add” function of a smart contract I deployed on this chain a few days ago. I pass in the parameters 5 and 10. A node somewhere on this network receives this call, executes the add function, and returns the result 15 in a transaction. Broadcasting this transaction to other nodes, they now arrive at the same result using these two input values 5 and 10 and record the transaction on their node.
+
+This flow is called a deterministic output. At any later stage, I can arrive at this exact point in the transaction. Any other node can verify this transaction this way(in a more mathematical way — Merkel trees). This determinism is what trust is in this decentralized network. This determinism is what makes the Blockchain what it is.
+
+Let’s now make one of the variables in this transaction dynamic. Instead of the value 5, let’s make it the value of the Bitcoin price at the transaction time. Now think about it, all the nodes do not execute the transaction at the same time. It’s like a wave that starts at one node and moves out to the other nodes. So when the first node executes the transaction, the value of Bitcoin might be “X + $3.4,” but a second later, it might be “X — $1.5”. So how exactly do all the nodes arrive at a deterministic output if one of the inputs itself isn’t deterministic?
+
+Introducing Oracles!
+
+A decentralized system is truly decentralized if every part of it operates in a trustless manner. What do I mean by this? If even one dependency of the Blockchain network is centralized, the entire network is now dependant on that one link. Should that link fail, the whole network fails! One solution to the above problem is to have the data provider decentralized as well! Oracles are just that. “Oracles” help provide information to the Blockchain network in a trustless manner.
+
+![Single Point of Failure](/AireshBlog/static/images/Single-Point-Failure.jpg)
+
+## How do Oracles work?
+
+Oracles are nothing but Smart Contracts again. Their job is to get data from the external world and provide it to other Smart Contracts. It acts as a layer between the leading blockchain network and the outer world(where most data lie). In this scenario, the Smart Contract does not know where the data is coming from. In the sense, a participant cannot learn from which endpoint the smart contract gets its information. Hence, one cannot manipulate the data the Smart Contract receives.
+
+It’s just as how one contract would make a call to another contract. You have the contract’s address, and with a couple of initialization lines, you can call the functions defined in the caller contract. Below is one such example of how an Oracle can work:
+
+![How do Oracles Work?](/AireshBlog/static/images/Oracles-Work.jpg)
+
+1. The smart contract calls the “getBitcoinPrice” function defined in the Oracle. Along with the function call, we pass a callback function “f” as well.
+2. The Oracle calls the external API to get the latest Bitcoin Price.
+3. The api responds with the latest Bitcoin Price.
+4. The Oracle now calls the callback function f with the latest Bitcoin Price in the parameter.
+
+## Limitations
+
+Oracles have their fair share of problems that might occur. For instance, if the data providers for a particular Oracle are controlled in the majority by a specific company/individual, they might be able to sway the data to their liking. Let’s say a particular Oracle, which responded with the current weather temperature, reads its data from a specific device. Furthermore, let’s say the majority of these devices were manufactured by a single company that has a way to manipulate the device’s reading. This setup gives the company a way to sway the smart contract execution to their liking. This issue is only one such limitation.
+
+## Conclusion
+
+There’s more to Oracles than meets the eye! Oracles are the solution to help Blockchains reach their true potential. If you want to dive deeper into Oracles, you can peruse through the links attached at the end of this article.
+
+- [Blockchain Oracles](https://setzeus.medium.com/blockchain-oracles-af3b216bed6b)
+- [What are Oracles? The Oracle Problem](https://medium.com/@teexofficial/what-are-oracles-smart-contracts-the-oracle-problem-911f16821b53)
+- [Decentralised Oracles](https://medium.com/fabric-ventures/decentralised-oracles-a-comprehensive-overview-d3168b9a8841)
+- [Blockchain Oracles fundamentals](https://101blockchains.com/blockchain-oracles/)
+- [Building an Oracle](https://cryptozombies.io/en/lesson/14/chapter/1)
+- [Chainlink Oracles. What is Chainlink?](https://www.gemini.com/cryptopedia/what-is-chainlink-and-how-does-it-work)
+- [What is a Blockchain Oracle?](https://chain.link/education/blockchain-oracles)
+
+This article was originally published on [Medium](https://medium.com/@asper9/blockchain-gateway-oracles-95167ba6b16b).

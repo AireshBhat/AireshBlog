@@ -1,0 +1,52 @@
+---
+title: 'Smart Contracts'
+summary: 'A post on Smart Contracts and how they are stored on the Ethereum Blockchain'
+date: 'Oct 10 2021'
+images: ['AireshBlog/static/images/Cytonn-Photography.jpg']
+category: 'Web3'
+tags: ['Blockchain', 'Smart Contracts', 'Ethereum']
+---
+
+There are plenty of articles out there explaining what smart contracts are. In short, they all say that a Smart Contract is “A program that runs on the Ethereum blockchain.” How does one make this program run? How does this program even exist on the blockchain? Why are there programs on the blockchain? These are some of the topics we will be covering in this article.
+
+In the Ethereum blockchain, there are two main entities. Actual people who are interacting with the blockchain and Ethereum smart contracts. However, both these entities have addresses. What do I mean by this? Both smart contracts and people have an address. Both of them can store Ether in their accounts. They can spend Ether as and when they want and however they want to. So what exactly is the difference here?
+
+Smart Contracts are hardcoded. Once deployed, one cannot alter a Smart Contract. The logic encoded in this smart contract cannot change once it has an address attributed to it. As a person, I can commit to someone that every week, on Monday at 7 AM, I will transfer 1 Ethereum to your address. However, there is no way anyone can enforce this commitment. One Monday, I might forget. The other Monday, I might send 0.5 Ether. A smart contract, however, once coded, cannot break this commitment. If one codes a Smart Contract to send 1 Ether to X address every Monday at 7 AM, it will honor the code as long as the Smart Contract has money in its address. No one can tamper with this. No one can alter this.
+
+As you might have heard, nothing on the blockchain can be tampered with. Once recorded in the ledger, there is nothing that can alter that data(Maybe not “nothing.” Most of the hacks that are possible are primarily theoretical, not something that anyone can practically achieve quickly. For example, the [51% attack](https://www.investopedia.com/terms/1/51-attack.asp)).
+
+## Programming and deploying the Smart Contract
+
+So how does one go about programming these smart contracts? Everything has a programming language. Like websites are built using HTML, CSS and, Javascript, Ethereum Smart Contracts are built using Solidity. Ethereum uses Solidity to write programs(whose syntax is very similar to Javascript). They are then compiled into bytecode (ones and zeroes that computers can understand). This bytecode is sent as a hexadecimal value(a form of representing these ones and zeroes) in the input data field in a transaction. This process of sending the bytecode in the transaction is called the deployment of a smart contract. The Ethereum blockchain understands that a program is being deployed and assigns an address to this smart contract. Anyone can then send money to this Smart Contract or extract money from this Smart Contract using this address. You can find the exact process of how to deploy and interact with a smart contract in [this article](https://docs.openzeppelin.com/learn/deploying-and-interacting).
+
+![Compiling a Smart Contract](/AireshBlog/static/images/Compiling-smart-contract.png)
+
+You can check the input data of [this transaction](https://rinkeby.etherscan.io/tx/0xcf7f88197c1178a1a94fb3ea21682f8e7a3747ba688eb80ffd0d070ce2ef4c27) which deployed a sample contract onto the Ethereum test chain.
+
+![Smart Contract Transaction](/AireshBlog/static/images/Transaction-Smart-Contract.png)
+
+## Different kinds of Smart Contracts
+
+Let us now talk about why there are programs on the Ethereum blockchain. From the above explanation, it should be pretty obvious. You might have heard of a term called DApps(we will be covering this in a future article). These are Distributed Applications that have a Smart Contract encoded in them. These apps provide ways to interact with a smart contract, display the current state of a smart contract, and mainly execute some logic. Some of the famous DApps are, Uniswap, MakerDAO, CryptoKitties. Each of these apps aims to code some agreement in a smart contract. This agreement is always kept regardless of external circumstances. If you want to read more about Uniswap and MakerDAO, click on the links below.
+
+1. [Uniswap](https://blockchainiseasy.github.io/decentralised-exchange-part-1/)
+2. [MakerDAO](https://blockchainiseasy.github.io/MakersDAI/)
+
+## State of a Smart Contract
+
+In the previous paragraph, I mentioned something called the state of a Smart Contract. What exactly does this mean? Each smart contract can hold data. This data is stored in variables which can be numbers, strings, addresses, and so on. Even more complicated variable types are mappings which map addresses to string or integer or even to addresses. These are just a few examples. After mining a block, that block holds the current state of all the smart contracts in the Ethereum blockchain. The current state is the current value of all the variables, the amount of Ether stored in the Smart Contract addresses, and other normal addresses.
+
+Apart from variables, Smart Contracts contain functions as well. They execute when certain conditions are satisfied. One can run a function on the Smart Contract by sending a transaction with the required parameters in the data field of the transaction. For example, if I want to enter a competition that has an entry fee of 0.01 Ether. I would interact with the host’s Smart Contract(mostly done via a DApp) and send 0.01 Ether to their address. Then the host’s Smart Contract will give my address a pass. Later, when I want to enter the competition, I would need to verify my address and, once approved, can join in successfully.
+
+Thus, with Solidity’s variables, functions, and many more APIs, one can build various features on the Ethereum blockchain. You might have heard of the term NFT(Non Fungible Token). These are nothing but Smart Contracts with certain logic in them. Each NFT is a Smart Contract which has a variable that stores the owner’s address of the NFT. It also has specific functions that help transfer the ownership of the NFT to someone else. They have particular modifiers that help prevent attackers from gaining unwarranted control of the NFT. The technical term for an NFT Smart Contract is called ERC721. We’ll dive into what this means in a future article! For now, all you need to know is that ERC721 defines a set of functions that need to be implemented to make a Smart Contract into an NFT.
+
+## Summary
+
+To summarise, we have seen:
+Smart Contracts are nothing but Solidity programs compiled and stored on the blockchain network with a specific address attached.
+
+- How an agreement once encoded and deployed cannot be altered with.
+- We can interact with a Smart Contract by sending a transaction with some data along with it.
+- Some use cases of Smart Contracts and how they are in use today.
+
+This article was originally published on [Medium](https://medium.com/@asper9/smart-contracts-a194da695a68).
