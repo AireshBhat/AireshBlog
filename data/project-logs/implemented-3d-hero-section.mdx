@@ -1,0 +1,82 @@
+---
+title: 'Implemented 3D Hero Section'
+date: '2025-01-20'
+project: 'personal-portfolio-website'
+tags: ['three.js', 'react-three-fiber', 'animation']
+---
+
+Today I made significant progress on the portfolio's hero section. After experimenting with several concepts, I settled on a 3D animated geometric shape that responds to mouse movements.
+
+## What I Did Today
+
+- Set up React Three Fiber and imported necessary dependencies
+- Created a geometric shape using Three.js geometry
+- Implemented mouse interaction for rotation and movement
+- Added subtle color shifts based on mouse position
+- Optimized performance to maintain 60fps on most devices
+
+## Code Snippet
+
+Here's the core component that handles the 3D animation:
+
+```jsx
+const HeroScene = () => {
+  const mesh = useRef()
+  const [hovered, setHovered] = useState(false)
+  
+  useFrame((state, delta) => {
+    mesh.current.rotation.x += delta * 0.1
+    mesh.current.rotation.y += delta * 0.15
+    
+    // Smooth lerp to target scale on hover
+    mesh.current.scale.x = THREE.MathUtils.lerp(
+      mesh.current.scale.x,
+      hovered ? 1.2 : 1,
+      0.1
+    )
+    mesh.current.scale.y = THREE.MathUtils.lerp(
+      mesh.current.scale.y,
+      hovered ? 1.2 : 1,
+      0.1
+    )
+    mesh.current.scale.z = THREE.MathUtils.lerp(
+      mesh.current.scale.z,
+      hovered ? 1.2 : 1,
+      0.1
+    )
+  })
+  
+  return (
+    <mesh
+      ref={mesh}
+      onPointerOver={() => setHovered(true)}
+      onPointerOut={() => setHovered(false)}
+    >
+      <dodecahedronGeometry args={[1.5, 0]} />
+      <meshStandardMaterial 
+        color={hovered ? "#6366f1" : "#8b5cf6"} 
+        wireframe={true}
+      />
+    </mesh>
+  )
+}
+```
+
+## Challenges
+
+The main challenge was getting the performance right. Initially, I was seeing frame drops on mobile devices. I addressed this by:
+
+1. Simplifying the geometry (reducing polygon count)
+2. Using wireframe rendering instead of full shading
+3. Implementing a performance detection system that reduces effects on less capable devices
+
+## Next Steps
+
+Tomorrow I plan to:
+
+- Add a subtle particle effect in the background
+- Implement scroll-based animations for the hero section
+- Connect the 3D element to the rest of the page content
+- Refine the color scheme and transitions
+
+Overall, I'm really happy with how the hero section is coming together. The interactive 3D element adds visual interest without being distracting or hurting performance.
