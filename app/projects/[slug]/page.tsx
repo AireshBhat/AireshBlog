@@ -1,4 +1,3 @@
-// app/projects/[slug]/page.tsx
 import { notFound } from 'next/navigation'
 import { allProjects, allProjectLogs } from 'contentlayer/generated'
 import { MDXLayoutRenderer } from 'pliny/mdx-components'
