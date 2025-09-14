@@ -25,8 +25,8 @@
   --color-primary-950: #0d0d0e;
 
   /* Custom brand colors */
-  --color-brand-bg: #E6E2DB;      /* Page Background Color */
-  --color-brand-card: #F9F8F5;    /* Card Background Color */
+  --color-brand-bg: #F9F8F5;      /* Page Background Color */
+  --color-brand-card: #E6E2DB;    /* Card Background Color */
   --color-brand-text: #161613;    /* Text, Heading & Body Color */
   --color-brand-accent: #28282F;  /* Primary Accent Color */
 
