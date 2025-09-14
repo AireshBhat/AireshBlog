@@ -12,7 +12,7 @@ An address is the most crucial identifier on the Blockchain. Everyone’s wallet
 
 For an everyday person, it’s as easy as clicking a “Create account” button on any wallet.
 
-![Create Account](/AireshBlog/static/images/Metamask.webp)
+![Create Account](/Profile/static/images/Metamask.webp)
 
 Doing this gives you something called a key-value pair. Imagine you lock something with a unique key(your private key). But this package can only be opened by another key related to yours, and the latter key is what you give the entire world. From this “public key,” we derive your address. This address can now hold your account balance and a few other properties that help the Blockchain network.
 
@@ -22,14 +22,14 @@ So far, we have with us:
 2. A public key,
 3. An address derived from this public key.
 
-![Account State](/AireshBlog/static/images/Account_State.webp)
+![Account State](/Profile/static/images/Account_State.webp)
 
 Now let’s add a couple of properties to the account state.
 
 1. Storage hash that links to the storage of the account
 2. Code hash that links to the accounts code.
 
-![Account State with Storage and Code](/AireshBlog/static/images/Smart_Contract_State.webp)
+![Account State with Storage and Code](/Profile/static/images/Smart_Contract_State.webp)
 
 What do we have here?
 
@@ -41,13 +41,13 @@ However, this account is not controlled by any user with a private key. It is go
 
 Today you created a work of art. On this day, you drew a cube with such perfect dimensions that this piece of craft felt personal to you. This art was such a masterpiece that all you wanted to do now was treasure this piece of art for eternity(slightly exaggerated, but this should work 😄).
 
-![Cube](/AireshBlog/static/images/NFT_Cube.jpg)
+![Cube](/Profile/static/images/NFT_Cube.jpg)
 
 How can you make sure this art is traced back to you? How can you ensure that someone cannot copy this piece of art later and claim it as theirs?
 
 As a developer, I take the code section of the Smart Contract we created above and add a few attributes to it. Imagine I make a basket that collects cubes: “programmatically.”(In the programming world, this basket is called an array). I take unique cubes created by artists, add them to my basket, and return a number to you. Any artist can later use this number to track their cube.
 
-![Basket](/AireshBlog/static/images/NFT_Bucket_Array.jpg)
+![Basket](/Profile/static/images/NFT_Bucket_Array.jpg)
 
 Now you and I both know that this code cannot be altered once deployed. Hence before deploying this code, I add a few accessibility functions that any artist can later use to upload their art and get a number.
 
@@ -57,7 +57,7 @@ So what do we have in our code so far?
 - A Create helper that helps artists upload their cube into the bucket and get a number.
 - An “ownerOf” helper.
 
-![Contract Code](/AireshBlog/static/images/contract_code.webp)
+![Contract Code](/Profile/static/images/contract_code.webp)
 
 Now, what is this ownerOf helper?
 

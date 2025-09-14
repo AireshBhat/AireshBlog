@@ -6,8 +6,8 @@ const siteMetadata = {
   description: 'A site where I document my projects, thoughts and everything Web3',
   language: 'en-us',
   theme: 'system', // system, dark or light
-  siteUrl: 'https://aireshbhat.github.io/AireshBlog',
-  siteRepo: 'https://github.com/AireshBhat/AireshBlog',
+  siteUrl: 'https://aireshbhat.github.io/Profile',
+  siteRepo: 'https://github.com/AireshBhat/Profile',
   siteLogo: `${process.env.BASE_PATH || ''}/static/images/logo.png`,
   socialBanner: `${process.env.BASE_PATH || ''}/static/images/twitter-card.png`,
   // mastodon: 'https://mastodon.social/@mastodonuser',

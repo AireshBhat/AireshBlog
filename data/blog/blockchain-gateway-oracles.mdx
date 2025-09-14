@@ -16,7 +16,7 @@ For quite some time now, we have trusted many third parties with our information
 
 In the current day and age, we have countless Blockchains. In our previous articles, we introduced Ethereum and, mainly, Ethereum smart contracts. Ethereum smart contracts allowed us to program rules that run when certain conditions are met, regardless of what happens(You can read more about smart contracts [here](https://blockchainiseasy.github.io/smart-contracts/)). Let’s say we have a smart contract that runs a betting game. Let the game be on the outcome of a particular sporting event, let’s say football. Participants A and B bet on the result of a football game played between Manchester United and Chelsea. A bets on Manchester whereas B bets on Chelsea. Both A and B deposit one Ether into a smart contract that automatically transfers the total amount to the winner based on the result of the match. This agreement seems pretty straightforward!
 
-![Betting Agreement](/AireshBlog/static/images/Betting-Agreement.jpg)
+![Betting Agreement](/Profile/static/images/Betting-Agreement.jpg)
 
 However, let’s say participant A here is a hacker ☠️. Regardless of the event’s outcome, participant A here manages to send the wrong information to the smart contract. This smart contract, which has only one source of information, now uses the false result to trigger a transaction that the Blockchain cannot revert. You might think it’s pretty simple to undo this issue. Just ask hacker A here to give back the amount to B. But what happens when millions of participants are betting? What happens if we do not know who participant A(the hacker) is?
 
@@ -36,7 +36,7 @@ Introducing Oracles!
 
 A decentralized system is truly decentralized if every part of it operates in a trustless manner. What do I mean by this? If even one dependency of the Blockchain network is centralized, the entire network is now dependant on that one link. Should that link fail, the whole network fails! One solution to the above problem is to have the data provider decentralized as well! Oracles are just that. “Oracles” help provide information to the Blockchain network in a trustless manner.
 
-![Single Point of Failure](/AireshBlog/static/images/Single-Point-Failure.jpg)
+![Single Point of Failure](/Profile/static/images/Single-Point-Failure.jpg)
 
 ## How do Oracles work?
 
@@ -44,7 +44,7 @@ Oracles are nothing but Smart Contracts again. Their job is to get data from the
 
 It’s just as how one contract would make a call to another contract. You have the contract’s address, and with a couple of initialization lines, you can call the functions defined in the caller contract. Below is one such example of how an Oracle can work:
 
-![How do Oracles Work?](/AireshBlog/static/images/Oracles-Work.jpg)
+![How do Oracles Work?](/Profile/static/images/Oracles-Work.jpg)
 
 1. The smart contract calls the “getBitcoinPrice” function defined in the Oracle. Along with the function call, we pass a callback function “f” as well.
 2. The Oracle calls the external API to get the latest Bitcoin Price.

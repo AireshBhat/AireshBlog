@@ -55,7 +55,7 @@ const securityHeaders = [
 ]
 
 const output = 'export'
-const basePath = '/AireshBlog'
+const basePath = '/Profile'
 const unoptimized = true
 
 /**
