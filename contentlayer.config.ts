@@ -278,8 +278,7 @@ export default makeSource({
   },
   onSuccess: async (importData) => {
     const data = await importData()
-    const { allBlogs, allProjects } = data
-    console.log({ data })
+    const { allBlogs } = data
     const tagCount = {}
     allBlogs.forEach((post) => {
       if (post.tags && !post.draft) {

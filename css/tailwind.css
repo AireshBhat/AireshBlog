@@ -10,31 +10,38 @@
   --font-sans: var(--font-space-grotesk), ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji',
     'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
 
-  /* Colors */
-  /* Copied from https://tailwindcss.com/docs/theme#default-theme-variable-reference */
-  --color-primary-50: oklch(0.971 0.014 343.198);
-  --color-primary-100: oklch(0.948 0.028 342.258);
-  --color-primary-200: oklch(0.899 0.061 343.231);
-  --color-primary-300: oklch(0.823 0.12 346.018);
-  --color-primary-400: oklch(0.718 0.202 349.761);
-  --color-primary-500: oklch(0.656 0.241 354.308);
-  --color-primary-600: oklch(0.592 0.249 0.584);
-  --color-primary-700: oklch(0.525 0.223 3.958);
-  --color-primary-800: oklch(0.459 0.187 3.815);
-  --color-primary-900: oklch(0.408 0.153 2.432);
-  --color-primary-950: oklch(0.284 0.109 3.907);
+  /* Colors - Updated to match landing page design */
+  /* Primary colors - using #28282F as the base primary color */
+  --color-primary-50: #f8f8f9;
+  --color-primary-100: #f0f0f2;
+  --color-primary-200: #e2e2e6;
+  --color-primary-300: #cdcdd4;
+  --color-primary-400: #b1b1be;
+  --color-primary-500: #28282F;  /* Primary Accent Color */
+  --color-primary-600: #232329;
+  --color-primary-700: #1e1e23;
+  --color-primary-800: #19191d;
+  --color-primary-900: #161618;
+  --color-primary-950: #0d0d0e;
 
-  --color-gray-50: oklch(0.985 0.002 247.839);
-  --color-gray-100: oklch(0.967 0.003 264.542);
-  --color-gray-200: oklch(0.928 0.006 264.531);
-  --color-gray-300: oklch(0.872 0.01 258.338);
-  --color-gray-400: oklch(0.707 0.022 261.325);
-  --color-gray-500: oklch(0.551 0.027 264.364);
-  --color-gray-600: oklch(0.446 0.03 256.802);
-  --color-gray-700: oklch(0.373 0.034 259.733);
-  --color-gray-800: oklch(0.278 0.033 256.848);
-  --color-gray-900: oklch(0.21 0.034 264.665);
-  --color-gray-950: oklch(0.13 0.028 261.692);
+  /* Custom brand colors */
+  --color-brand-bg: #E6E2DB;      /* Page Background Color */
+  --color-brand-card: #F9F8F5;    /* Card Background Color */
+  --color-brand-text: #161613;    /* Text, Heading & Body Color */
+  --color-brand-accent: #28282F;  /* Primary Accent Color */
+
+  /* Updated gray colors to match the warm color scheme */
+  --color-gray-50: #F9F8F5;   /* Card Background */
+  --color-gray-100: #F2F1EC;
+  --color-gray-200: #E6E2DB;  /* Page Background */
+  --color-gray-300: #D4CFBF;
+  --color-gray-400: #A8A299;
+  --color-gray-500: #7D7770;
+  --color-gray-600: #5D5851;
+  --color-gray-700: #46433E;
+  --color-gray-800: #2F2D29;
+  --color-gray-900: #161613;  /* Text Color */
+  --color-gray-950: #0D0C0A;
 
   /* Line heights */
   --line-height-11: 2.75rem;
@@ -65,6 +72,27 @@
     border-color: var(--color-gray-200, currentColor);
   }
 
+  html {
+    background-color: var(--color-brand-bg);
+    color: var(--color-brand-text);
+  }
+
+  body {
+    background-color: var(--color-brand-bg);
+    color: var(--color-brand-text);
+  }
+
+  /* Dark mode overrides */
+  html.dark {
+    background-color: var(--color-gray-900);
+    color: var(--color-gray-100);
+  }
+
+  html.dark body {
+    background-color: var(--color-gray-900);
+    color: var(--color-gray-100);
+  }
+
   a,
   button {
     outline-color: var(--color-primary-500);
@@ -79,6 +107,22 @@
 }
 
 @layer utilities {
+  /* Brand color utilities */
+  .bg-brand-bg { background-color: var(--color-brand-bg); }
+  .bg-brand-card { background-color: var(--color-brand-card); }
+  .text-brand-text { color: var(--color-brand-text); }
+  .text-brand-accent { color: var(--color-brand-accent); }
+  .bg-brand-accent { background-color: var(--color-brand-accent); }
+  .border-brand-accent { border-color: var(--color-brand-accent); }
+
+  /* Full-width hero utilities */
+  .hero-section {
+    margin-left: calc(-50vw + 50%);
+    margin-right: calc(-50vw + 50%);
+    width: 100vw;
+    position: relative;
+  }
+
   .prose {
     & a {
       color: var(--color-primary-500);
@@ -92,12 +136,17 @@
     & :where(h1, h2) {
       font-weight: 700;
       letter-spacing: var(--tracking-tight);
+      color: var(--color-brand-text);
     }
     & h3 {
       font-weight: 600;
+      color: var(--color-brand-text);
     }
     & :where(code):not(pre code) {
-      color: var(--color-indigo-500);
+      color: var(--color-primary-500);
+    }
+    & p, & li {
+      color: var(--color-brand-text);
     }
   }
 
