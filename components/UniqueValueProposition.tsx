@@ -4,9 +4,8 @@ const UniqueValueProposition: React.FC = () => {
   return (
     <div className="mb-12">
       {/* Header */}
-      <div className="mb-8 flex items-center">
-        <span className="text-3xl">💡</span>
-        <h2 className="ml-4 text-4xl font-bold text-gray-900">Unique Value Proposition</h2>
+      <div className="mb-8">
+        <h2 className="text-4xl font-bold text-gray-900">Unique Value Proposition</h2>
       </div>
 
       {/* Three-column grid */}

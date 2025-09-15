@@ -125,9 +125,8 @@ const ProfessionalEvolution: React.FC = () => {
   return (
     <div className="mb-12">
       {/* Header */}
-      <div className="mb-12 flex items-center">
-        <span className="text-3xl">📈</span>
-        <h2 className="text-brand-text ml-4 text-4xl font-bold">Professional Evolution</h2>
+      <div className="mb-12">
+        <h2 className="text-brand-text text-4xl font-bold">Professional Evolution</h2>
       </div>
 
       {/* Timeline */}

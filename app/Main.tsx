@@ -70,9 +70,8 @@ export default function Home({ posts, projects }) {
 
           {/* Current Focus & Future Direction */}
           <div className="bg-brand-card mb-12 rounded-2xl p-8 shadow-lg">
-            <div className="mb-8 flex items-center">
-              <span className="text-2xl">🎯</span>
-              <h2 className="text-brand-text ml-3 text-3xl font-bold">
+            <div className="mb-8">
+              <h2 className="text-brand-text text-3xl font-bold">
                 Current Focus & Future Direction
               </h2>
             </div>
@@ -189,9 +188,8 @@ export default function Home({ posts, projects }) {
 
           {/* Let's Build Together */}
           <div className="bg-brand-card mb-12 rounded-2xl p-8 shadow-lg">
-            <div className="mb-8 flex items-center">
-              <span className="text-2xl">🤝</span>
-              <h2 className="text-brand-text ml-3 text-3xl font-bold">Let's Build Together</h2>
+            <div className="mb-8">
+              <h2 className="text-brand-text text-3xl font-bold">Let's Build Together</h2>
             </div>
 
             <p className="text-brand-text mb-8 text-lg leading-relaxed">
