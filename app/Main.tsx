@@ -5,14 +5,54 @@ import Image from '@/components/Image'
 import ProfessionalEvolution from '@/components/ProfessionalEvolution'
 import UniqueValueProposition from '@/components/UniqueValueProposition'
 import TechnicalArsenal from '@/components/TechnicalArsenal'
+import { motion } from 'framer-motion'
+
+// Animation variants
+const fadeInUp = {
+  initial: { opacity: 0, y: 60 },
+  animate: { opacity: 1, y: 0 },
+  transition: { duration: 0.6, ease: 'easeOut' },
+}
+
+const fadeIn = {
+  initial: { opacity: 0 },
+  animate: { opacity: 1 },
+  transition: { duration: 0.8, ease: 'easeOut' },
+}
+
+const staggerContainer = {
+  initial: {},
+  animate: {
+    transition: {
+      staggerChildren: 0.2,
+    },
+  },
+}
+
+const slideInLeft = {
+  initial: { opacity: 0, x: -60 },
+  animate: { opacity: 1, x: 0 },
+  transition: { duration: 0.6, ease: 'easeOut' },
+}
+
+const scaleIn = {
+  initial: { opacity: 0, scale: 0.8 },
+  animate: { opacity: 1, scale: 1 },
+  transition: { duration: 0.5, ease: 'easeOut' },
+}
 
 export default function Home({ posts, projects }) {
   return (
     <>
       {/* Full-width Hero Section with Background Image */}
-      <div className="hero-section relative min-h-screen w-full overflow-hidden">
+      <motion.div
+        className="hero-section relative min-h-screen w-full overflow-hidden"
+        initial="initial"
+        animate="animate"
+        variants={staggerContainer}
+      >
         {/* Background Image */}
-        <div className="absolute inset-0 z-0">
+        <motion.div className="absolute inset-0 z-0" variants={fadeIn}>
           <Image
             src="/static/images/landing/blockchain-network.png"
             alt="Blockchain Network Background"
@@ -20,28 +60,40 @@ export default function Home({ posts, projects }) {
             className="object-cover"
             priority
           />
-        </div>
+        </motion.div>
 
         {/* Background Overlay for Content Readability */}
-        <div className="absolute inset-0 z-10 bg-stone-100/30 bg-gradient-to-b from-black/60 via-black/40 to-black/70 p-8 backdrop-blur-sm"></div>
+        <motion.div
+          className="absolute inset-0 z-10 bg-stone-100/30 bg-gradient-to-b from-black/60 via-black/40 to-black/70 p-8 backdrop-blur-sm"
+          variants={fadeIn}
+        ></motion.div>
 
         {/* Hero Content */}
         <div className="relative z-20 flex min-h-screen items-center justify-center">
           <div className="mx-auto max-w-6xl px-4 py-24 sm:px-6 lg:px-8">
             <div className="flex flex-col lg:flex-row lg:items-center lg:space-x-8">
               <div className="lg:flex-1">
-                <h1 className="mb-4 text-4xl font-bold text-stone-100 lg:text-6xl">
+                <motion.h1
+                  className="mb-4 text-4xl font-bold text-stone-100 lg:text-6xl"
+                  variants={slideInLeft}
+                >
                   Road to Web3, v.india
-                </h1>
-                <p className="mb-6 text-lg leading-relaxed text-gray-100 lg:text-xl">
+                </motion.h1>
+                <motion.p
+                  className="mb-6 text-lg leading-relaxed text-gray-100 lg:text-xl"
+                  variants={fadeInUp}
+                >
                   Full-stack blockchain engineer with a unique journey from traditional web
                   development to decentralised systems architecture. Over 4+ years, I've evolved
                   from building frontend interfaces to architecting blockchain solutions across
                   Ethereum, Bitcoin L2s, and Polkadot ecosystems. Currently pioneering Web3
                   infrastructure for India's digital economy through innovative agent-based systems
                   and decentralised identity solutions.
-                </p>
-                <div className="bg-brand-card/30 rounded-lg p-6 backdrop-blur-sm">
+                </motion.p>
+                <motion.div
+                  className="bg-brand-card/30 rounded-lg p-6 backdrop-blur-sm"
+                  variants={scaleIn}
+                >
                   <p className="text-white">
                     <strong>Core Philosophy:</strong> Inspired by Pandit Deendayal's Integral
                     Humanism, I'm committed to building a decentralised, swadeshi economy that
@@ -51,25 +103,52 @@ export default function Home({ posts, projects }) {
                     </a>{' '}
                     through sovereign digital infrastructure.
                   </p>
-                </div>
+                </motion.div>
               </div>
             </div>
           </div>
         </div>
-      </div>
+      </motion.div>
 
       {/* Rest of Content with Background */}
       <div className="bg-brand-bg">
         <div className="mx-auto max-w-6xl px-4 py-12 sm:px-6 lg:px-8">
           {/* Professional Evolution */}
-          <ProfessionalEvolution />
+          <motion.div
+            initial="initial"
+            whileInView="animate"
+            viewport={{ once: true, amount: 0.3 }}
+            variants={fadeInUp}
+          >
+            <ProfessionalEvolution />
+          </motion.div>
 
-          <UniqueValueProposition />
+          <motion.div
+            initial="initial"
+            whileInView="animate"
+            viewport={{ once: true, amount: 0.3 }}
+            variants={fadeInUp}
+          >
+            <UniqueValueProposition />
+          </motion.div>
 
-          <TechnicalArsenal />
+          <motion.div
+            initial="initial"
+            whileInView="animate"
+            viewport={{ once: true, amount: 0.3 }}
+            variants={fadeInUp}
+          >
+            <TechnicalArsenal />
+          </motion.div>
 
           {/* Current Focus & Future Direction */}
-          <div className="bg-brand-card mb-12 rounded-2xl p-8 shadow-lg">
+          <motion.div
+            className="bg-brand-card mb-12 rounded-2xl p-8 shadow-lg"
+            initial="initial"
+            whileInView="animate"
+            viewport={{ once: true, amount: 0.2 }}
+            variants={scaleIn}
+          >
             <div className="mb-8">
               <h2 className="text-brand-text text-3xl font-bold">
                 Current Focus & Future Direction
@@ -184,10 +263,16 @@ export default function Home({ posts, projects }) {
                 </div>
               </div>
             </div>
-          </div>
+          </motion.div>
 
           {/* Let's Build Together */}
-          <div className="bg-brand-card mb-12 rounded-2xl p-8 shadow-lg">
+          <motion.div
+            className="bg-brand-card mb-12 rounded-2xl p-8 shadow-lg"
+            initial="initial"
+            whileInView="animate"
+            viewport={{ once: true, amount: 0.2 }}
+            variants={fadeInUp}
+          >
             <div className="mb-8">
               <h2 className="text-brand-text text-3xl font-bold">Let's Build Together</h2>
             </div>
@@ -250,10 +335,16 @@ export default function Home({ posts, projects }) {
                 together."
               </p>
             </div>
-          </div>
+          </motion.div>
 
           {/* Contact Information */}
-          <div className="bg-brand-card rounded-2xl p-8 shadow-lg">
+          <motion.div
+            className="bg-brand-card rounded-2xl p-8 shadow-lg"
+            initial="initial"
+            whileInView="animate"
+            viewport={{ once: true, amount: 0.2 }}
+            variants={slideInLeft}
+          >
             <h2 className="text-brand-text mb-8 text-3xl font-bold">Contact Information</h2>
 
             <div className="grid gap-8 lg:grid-cols-3">
@@ -289,7 +380,7 @@ export default function Home({ posts, projects }) {
                 View GitHub
               </a>
             </div>
-          </div>
+          </motion.div>
         </div>
       </div>
     </>
