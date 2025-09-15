@@ -1,8 +1,8 @@
 /** @type {import("pliny/config").PlinyConfig } */
 const siteMetadata = {
-  title: "Airesh's Blog",
+  title: 'House of Chiti',
   author: 'Airesh',
-  headerTitle: 'Airesh',
+  headerTitle: 'Chiti x Airesh',
   description: 'A site where I document my projects, thoughts and everything Web3',
   language: 'en-us',
   theme: 'system', // system, dark or light
